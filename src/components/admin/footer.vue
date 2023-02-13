@@ -1,7 +1,7 @@
 <template>
     <div class="footer-adm">
         <div class="footer-content">
-            <p @click="modalAbout = true"><font-awesome-icon icon="fa-regular fa-circle-question" /></p>
+            <p @click="modalAbout = true" :title="$t('hint.aboutWeb')"><font-awesome-icon icon="fa-regular fa-circle-question" /></p>
             <p>&copy;2023 WIKSmart, <a href="https://smkwikrama.sch.id/" target="_blank">SMK WIKRAMA BOGOR</a></p>
         </div>
     </div>

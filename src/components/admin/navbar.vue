@@ -4,14 +4,14 @@
         <div class="navbar-container">
             <div class="title-page">
                 <div class="subtitle-page">
-                    {{ currentRouteSubName }} {{ currentRouteName }}
+                    {{ currentRouteName }}
                 </div>
             </div>
 
             <!-- Navbar menu -->
             <div class="nav-menu">
                 <!-- Notification -->
-                <div class="nav-notif" @click="dropnotif = !dropnotif">
+                <div class="nav-notif" @click="dropnotif = !dropnotif" :title="$t('hint.notif')">
                     <font-awesome-icon class="icon" icon="fa-regular fa-bell" />
 
                     <div class="nav-not-badge">
@@ -38,7 +38,7 @@
                 </div>
 
                 <!-- Profile & menu -->
-                <div class="nav-profile" @click="dropmenu = !dropmenu">
+                <div class="nav-profile" @click="dropmenu = !dropmenu" :title="$t('hint.profile')">
                     <div class="pro-img">
                         <!-- <img src="../../assets/image" alt=""> -->
                         <font-awesome-icon icon="fa-regular fa-user" />

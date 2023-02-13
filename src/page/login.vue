@@ -12,10 +12,10 @@
                     <p>WIK<span>Smart</span></p>
                 </div>
 
+                <!-- Error alert -->
+                <div v-if="error" class="alert-error" role="alert">{{ error }}</div>
+
                 <form @submit.prevent="handlersubmit">
-                <div v-if="error" style="color: black;" class="alert alert-dark" role="alert">
-                        {{ error }}
-                </div>
                     <!-- Username input -->
                     <div class="login-input">
                         <div class="login-icon">
