@@ -100,8 +100,6 @@
 
 <script>
     import axios from 'axios';
-    import { ref } from 'vue';
-    import { useRouter } from 'vue-router';
     import { apiHost } from "../config"
 
     export default {
@@ -129,32 +127,6 @@
                     this.error = 'Invalid email/password !!'
                 }
             }
-        },
-        // setup() { 
-            // const tokenWeb = ref('') 
-
-            // const roleWeb = ref('')
-
-            // handlersubmit() = async () => {
-            //     const res = await axios
-            //     .post(apiHost + 'auth/login', {
-            //         email: this.email,
-            //         password: this.password
-            //     })
-            //     localStorage.setItem('token', res.data.token)
-            //     this.$router.push('/admin/dashboard')
-            // }
-
-            // return {
-            //     handlersubmit
-            // }
-
-            // const refresh = async () => {
-            //     const res = await axios
-            //     .get(apiHost + 'regions')
-            //     listdata.value = res.data
-            //     loadData.value = false
-            // }
-        // }
+        }
     }
 </script>
