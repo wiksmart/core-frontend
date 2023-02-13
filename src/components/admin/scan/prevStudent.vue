@@ -56,7 +56,7 @@ export default {
 
         const refresh = async () => {
             const res = await axios
-                .get(apiHost + 'scans')
+                .get(apiHost + 'scans?type=STUDENT')
             listdata.value = res.data
             loadData.value = false
         }
