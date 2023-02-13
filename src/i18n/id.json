@@ -1,0 +1,71 @@
+{
+    "notFound": {
+        "message": "Maaf halaman/URL yang anda cari tidak dapat ditemukan",
+        "back": "kembali"
+    },
+    "navMenu": {
+        "profile": "Profil",
+        "darkmode": "Mode Gelap",
+        "logout": "Keluar"
+    },
+    "notification": {
+        "notif": "Notifikasi"
+    },
+    "sidebar": {
+        "dashboard": "Beranda",
+        "major": "Jurusan",
+        "school": "Sekolah",
+        "rombel": "Rombel",
+        "rayon": "Rayon",
+        "acaYear": "Tahun Ajaran",
+        "student": "Siswa",
+        "teacher": "Guru",
+        "staff": "Staf",
+        "users": "Pengguna",
+        "scan": "Memindai",
+        "machine": "Mesin",
+        "lastTap": "Tap Terakhir"
+    },
+    "menu": {
+        "add": "Tambah",
+        "submit": "Kirim",
+        "cancel": "Batal"
+    },
+    "modal": {
+        "addMajor": "Tambah Jurusan",
+        "addClass": "Tambah Rombel",
+        "addRayon": "Tambah Rayon",
+        "addAcaYear": "Tambah Tahun Ajaran"
+    },
+    "table": {
+        "no": "No",
+        "pict": "Foto",
+        "nis": "NIS",
+        "nip": "NIP",
+        "rfid": "RFID",
+        "name": "Nama",
+        "email": "Email",
+        "class": "Rombel",
+        "region": "Rayon",
+        "position": "Jabatan",
+        "room": "Ruangan",
+        "action": "Aksi",
+        "edit": "Ubah",
+        "detail": "Detil",
+        "delete": "Hapus"
+    },
+    "tableClass": {
+        "major": "Jurusan",
+        "prodi": "Kompetensi Keahlian",
+        "desc": "Deskripsi",
+        "level": "Tingkat",
+        "classNo": "No Kelas",
+        "area": "Wilayah"
+    },
+    "tableAcaYear": {
+        "startYear": "Tahun Mulai",
+        "endYear": "Tahun Selesai",
+        "desc": "Deskripsi",
+        "status": "Status"
+    }
+}

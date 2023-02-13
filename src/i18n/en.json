@@ -1,0 +1,71 @@
+{
+    "notFound": {
+        "message": "Sorry, the page/URL you were looking for was not found",
+        "back": "Back"
+    },
+    "navMenu": {
+        "profile": "Profile",
+        "darkmode": "Darkmode",
+        "logout": "Log out"
+    },
+    "notification": {
+        "notif": "Notification"
+    },
+    "sidebar": {
+        "dashboard": "Dashboard",
+        "major": "Major",
+        "school": "School",
+        "rombel": "Class",
+        "rayon": "Region",
+        "acaYear": "Academic Year",
+        "student": "Student",
+        "teacher": "Teacher",
+        "staff": "Staff",
+        "users": "Users",
+        "scan": "Scan",
+        "machine": "Machine",
+        "lastTap": "Last Tap"
+    },
+    "menu": {
+        "add": "Add",
+        "submit": "Submit",
+        "cancel": "Cancel"
+    },
+    "modal": {
+        "addMajor": "Add Major",
+        "addClass": "Add Class",
+        "addRayon": "Add Region",
+        "addAcaYear": "Add Academic Year"
+    },
+    "table": {
+        "no": "No",
+        "pict": "Picture",
+        "nis": "NIS",
+        "nip": "NIP",
+        "rfid": "RFID",
+        "name": "Name",
+        "email": "Email",
+        "class": "Class",
+        "region": "Region",
+        "position": "Position",
+        "room": "Room",
+        "action": "Action",
+        "edit": "Edit",
+        "detail": "Detail",
+        "delete": "Delete"
+    },
+    "tableClass": {
+        "major": "Major",
+        "prodi": "Expertise Competency",
+        "desc": "Description",
+        "level": "Level",
+        "classNo": "Class No",
+        "area": "Area"
+    },
+    "tableAcaYear": {
+        "startYear": "Start Year",
+        "endYear": "End Year",
+        "desc": "Description",
+        "status": "Status"
+    }
+}
