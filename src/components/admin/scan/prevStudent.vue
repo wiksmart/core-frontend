@@ -10,7 +10,7 @@
     </div>
 
     <div class="content-table">
-        <p>pe</p>
+   
         <table>
           
             <thead>
