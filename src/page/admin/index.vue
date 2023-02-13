@@ -56,7 +56,7 @@
         },
         methods: {
             toggle(payload) {
-                this.isDarkmode = payload
+                this.isDarkmode = !payload
             }
         },
         setup() { 

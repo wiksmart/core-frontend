@@ -1,7 +1,7 @@
 <template>
     <div class="container-section">
         <div class="load-base" :class="loadData ? 'load-base-show' : ''"><Loading /></div>
-<p>pe {{ cek }}</p>
+<!-- <p>pe {{ cek }}</p> -->
         <div class="content-section">
             <div class="content-header">
                 <span>
@@ -85,12 +85,10 @@
             const listdata = reactive([]);
             const loadData = ref(true)
             const modalAdd = ref(false)
-            const idSchoolYear = ref('')
             const refresh = async () => {
                 const res = await axios
                 .get(apiHost + 'school-years')
-
-                // idSchoolYear.value = localStorage.setItem('schoolYear', res.data)
+                localStorage.setItem('SchoolYear', res.data.id)
                 listdata.value = res.data.id
                 loadData.value = false
             }

@@ -121,9 +121,19 @@
                 
                     localStorage.setItem('token', res.data.access_token)
 
-                    this.$router.push('/admin/dashboard')
-                
-                } catch (e) {
+                    if(res.data.type === 'ADMIN') {
+                        this.$router.push('/admin/dashboard')
+                    } else if(res.data.type === 'TEACHER') {
+                        this.$router.push('/teacher/dashboard')
+                    } else if(res.data.type === 'STUDENT') {
+                        this.$router.push('/student/dashboard')
+                    }
+
+                    localStorage.setItem('role', res.data.type)
+
+                    localStorage.setItem('name', res.data.name)
+                } 
+                catch (e) {
                     this.error = 'Invalid email/password !!'
                 }
             }

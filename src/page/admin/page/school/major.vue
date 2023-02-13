@@ -93,6 +93,7 @@
             const refresh = async () => {
                 const res = await axios
                     .get(apiHost + "majors")
+                localStorage.setItem('token', res.data.id)
                 listdata.value = res.data
                 loadData.value = false
             }

@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="pro-name">
-                        <p>Richal</p>
+                        <p>{{ username }}</p>
                     </div>
 
                     <div class="pro-icon" :class="dropmenu ? 'rot-icon' : ''">
@@ -63,11 +63,11 @@
                     </div>
 
                     <div class="prev-name">
-                        <p>Richal</p>
+                        <p>{{ username }}</p>
                     </div>
 
                     <div class="prev-role">
-                        <p>Admin</p>
+                        <p>{{ roleStatus }}</p>
                     </div>
                 </div>
 
@@ -141,11 +141,17 @@
                 localStorage.setItem('lang', locale.value);
             }
 
+            const roleStatus = localStorage.getItem('role')
+
+            const username = localStorage.getItem('name')
+
             return {
                 t,
                 locale,
                 switchLang,
                 switchLang2,
+                roleStatus,
+                username,
                 buttonLang: ref(false),
                 dropmenu: ref(false),
                 dropnotif: ref(false)
