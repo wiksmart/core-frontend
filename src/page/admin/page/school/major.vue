@@ -15,7 +15,7 @@
 
             <div class="content-table">
                 <table>
-                    <p>listdata.value</p>
+                  
                     
                     <thead>
                         <tr>
@@ -91,9 +91,9 @@
             const route = useRoute()
 
             const refresh = async () => {
-                const res = await axios
-                    .get(apiHost + "majors")
-                localStorage.setItem('token', res.data.id)
+                const res = await axios.get(apiHost + "majors")
+                const active = await axios.get(apiHost + 'majors/active')
+                localStorage.setItem('SchoolYear', active.data.id)
                 listdata.value = res.data
                 loadData.value = false
             }

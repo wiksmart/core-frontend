@@ -86,10 +86,10 @@
             const loadData = ref(true)
             const modalAdd = ref(false)
             const refresh = async () => {
-                const res = await axios
-                .get(apiHost + 'school-years')
-                localStorage.setItem('SchoolYear', res.data.id)
-                listdata.value = res.data.id
+                const res = await axios.get(apiHost + 'school-years')
+                const active = await axios.get(apiHost + 'school-years/active')
+                localStorage.setItem('SchoolYear', active.data.id)
+                listdata.value = res.data
                 loadData.value = false
             }
 
