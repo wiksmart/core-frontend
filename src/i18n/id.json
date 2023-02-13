@@ -11,6 +11,13 @@
     "notification": {
         "notif": "Notifikasi"
     },
+    "hint": {
+        "aboutWeb": "Tentang website ini",
+        "notif": "Notifikasi",
+        "profile": "Profil",
+        "wideSide": "Sidebar lebar",
+        "simpleSide": "Sidebar kecil"
+    },
     "sidebar": {
         "dashboard": "Beranda",
         "major": "Jurusan",

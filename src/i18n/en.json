@@ -11,6 +11,13 @@
     "notification": {
         "notif": "Notification"
     },
+    "hint": {
+        "aboutWeb": "About this website",
+        "notif": "Notification",
+        "profile": "Profile",
+        "wideSide": "Wide Sidebar",
+        "simpleSide": "Mini Sidebar"
+    },
     "sidebar": {
         "dashboard": "Dashboard",
         "major": "Major",
