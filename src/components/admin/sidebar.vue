@@ -132,7 +132,7 @@
                 <!-- Singel menu (Logout) -->
                 <div class="menu-sidebar side-logout">
                     <li>
-                        <p>{{ $t('navMenu.logout') }}</p>
+                        <p v-on:click="handlerClick">{{ $t('navMenu.logout') }}</p>
 
                         <span>
                             <font-awesome-icon icon="fa-solid fa-right-from-bracket" />
@@ -148,6 +148,7 @@
     import { ref } from 'vue';
 
     export default {
+       
         methods: {
             subIsActive(input) {
             const paths = Array.isArray(input) ? input : [input];
@@ -155,6 +156,10 @@
                     return this.$route.path.indexOf(path) === 0; // current path starts with this path string
                 });
             },
+            handlerClick(){
+                localStorage.removeItem('token')
+                this.$router.push('/')
+            }
         },
         setup() {
             return {

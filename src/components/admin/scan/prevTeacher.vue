@@ -15,21 +15,21 @@
                 <tr>
                     <th>{{ $t('table.no') }}</th>
                     <th>{{ $t('table.rfid') }}</th>
-                    <th>{{ $t('table.nip') }}</th>
                     <th>{{ $t('table.name') }}</th>
                     <th>{{ $t('table.position') }}</th>
                     <th>{{ $t('table.room') }}</th>
+                    <th>Status</th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>0xfc 0xb5 0x4d 0x17</td>
-                    <td>12007875</td>
-                    <td>Mada Dwi Saputra</td>
-                    <td>Laboran</td>
-                    <td>322</td>
+                <tr  v-for="(data, index) in listdata.value" :key="data.id">
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ data.rfid }}</td>
+                    <td>{{ data.user.name }}</td>
+                    <td>{{ data.user.division }}</td>
+                    <td>{{ data.machine.room }}</td>
+                    <td>{{ data.status }}</td>
                 </tr>
             </tbody>
         </table>
@@ -37,9 +37,39 @@
 </template>
 
 <script>
-    export default {
-        setup() {
-            
+import { onMounted, onUpdated, reactive, ref } from "vue"
+import axios from "axios"
+import Loading from '../../../components/loading.vue'
+import { apiHost } from "../../../config"
+
+export default {
+    components: {
+        Loading
+    },
+    setup() {
+        const listdata = reactive([])
+        const switchCard = ref(0)
+
+        const refresh = async () => {
+            const res = await axios
+                .get(apiHost + 'scans?type=TEACHER')
+          listdata.value = res.data
+            loadData.value = false
+        }
+
+        const loadData = ref(true)
+
+        onMounted(() => {
+            refresh()
+        })
+
+        return {
+            switchCard,
+            modalImg: ref(false),
+            listdata,
+            loadData
         }
     }
+}
+
 </script>

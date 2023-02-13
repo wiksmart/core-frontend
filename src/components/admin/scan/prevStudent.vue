@@ -20,6 +20,7 @@
                     <th>{{ $t('table.nis') }}</th>
                     <th>{{ $t('table.name') }}</th>
                     <th>{{ $t('table.room') }}</th>
+                    <th>Time</th>
                     <th>Status</th>
                     
                 </tr>
@@ -33,6 +34,7 @@
                     <td>{{ data.user.nis }}</td>
                     <td>{{ data.user.name }}</td>
                     <td>{{ data.machine.room }}</td>
+                    <td>{{ data.date }}</td>
                     <td>{{ data.status}}</td>
                 </tr>
             </tbody>

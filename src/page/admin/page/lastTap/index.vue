@@ -5,15 +5,14 @@
         </div>
 
         <div class="content-section">
-            <div class="content-header" v-for="(data, index) in listdata.value" :key="data.id">
+            <div class="content-header" >
                 <div class="text-content" >
-                    <p>{{ data.user.name }}</p>
-                   
-                </div>
-                <!-- <span  v-for="(data, index) in listdata.value" :key="data.id">
+                <span >
                     <font-awesome-icon icon="fa-solid fa-microchip" />
-                    &emsp;  asdasd
-                </span> -->
+                     &emsp;Las Tap
+                 </span>
+                </div>
+                
                 
             </div>     
 
@@ -24,6 +23,9 @@
                             <th>{{ $t('table.no') }}</th>
                             <th>Rfid</th>
                             <th>Mac</th>
+                            <th>Name</th>
+                            <th>Division</th>
+                           
                             <th>Date</th>
                         </tr>
                     </thead>
@@ -33,6 +35,8 @@
                             <td>{{ index + 1 }}</td>
                             <td>{{ data.rfid }}</td>
                             <td>{{ data.machine.address }}</td>
+                            <td>{{ data.user.name }}</td>
+                            <td>{{ data.user.type }}</td>
                             <td>{{ data.date }}</td>
                         </tr>
                     </tbody>

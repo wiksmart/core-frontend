@@ -94,7 +94,8 @@ const routes = [
                 name: 'Last Tap',
                 component: LastTap,
                 meta: { title: "Last Tap" },
-            }
+            },
+          
         ],
     },
 ];
@@ -103,10 +104,12 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
 });
-
+const isAuthenticated = true
 router.beforeEach(async (to, from, next) => {
     document.title = 'WIKSmart - ' + `${to.meta.title}`;
-    next();
+    if(to.name !== 'Login' && !isAuthenticated) next({name: 'Login'});
+    if(to.name === 'Login' && isAuthenticated) next({name: 'Dashboard'});
+    else next()
 });
 
 export default router;
