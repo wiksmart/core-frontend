@@ -70,9 +70,10 @@
         "area": "Wilayah"
     },
     "tableAcaYear": {
-        "startYear": "Tahun Mulai",
-        "endYear": "Tahun Selesai",
+        "startYear": "Tanggal Mulai",
+        "endYear": "Tanggal Selesai",
         "desc": "Deskripsi",
-        "status": "Status"
+        "status": "Status",
+        "addStart": "Masukan deskripsi..."
     }
 }

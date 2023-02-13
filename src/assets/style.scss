@@ -1428,7 +1428,6 @@
             background: var(--switch-dm);
             border-radius: 200px;
             cursor: pointer;
-            // outline: 1px solid var(--color-logo);
             outline: 1px solid rgb(185, 185, 185);
             transition: background-color .4s;
 
@@ -2091,7 +2090,7 @@
 
     .content-modal {
         width: 95%;
-        height: 85vh;
+        height: auto;
         max-height: 85vh;
         position: absolute;
         z-index: 6;
@@ -2120,9 +2119,171 @@
         .modal-value {
             width: 100%;
             height: auto;
-            max-height: calc(100% - 40px - 50px);
-            padding: 0px 12px;
+            max-height: calc(85vh - 40px - 50px);
+            padding: 12px;
             overflow-y: auto;
+
+            .row-input {
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-wrap: wrap;
+                column-gap: 16px;
+                row-gap: 20px;
+                position: relative;
+
+                .full-input {
+                    width: 100%;
+                    position: relative;
+
+                    .title-input {
+                        width: 100%;
+                        p {
+                            font-size: 14px;
+                            color: var(--color-text);
+                        }
+                    }
+
+                    input {
+                        font-size: 14px;
+                        padding: 8px 16px;
+                        border-radius: 12px;
+                        border: 1.5px solid gray;
+                        font-family: 'Poppins', sans-serif;
+                        width: 100%;
+                        background-color: transparent;
+                        color: var(--color-sharp);
+
+                        &:focus {
+                            border: 1.5px solid #3cb4ff !important;
+                            outline: .5px solid #3cb4ff !important;
+                        }
+
+                        &::-webkit-input-placeholder {
+                            color: gray;
+                        }
+
+                        &::-webkit-calendar-picker-indicator {
+                            filter: invert(40%);
+                        }
+                    }
+
+                    .act-tog {
+                        width: 100%;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        color: var(--color-sharp);
+
+                        .tog-2 {
+                            width: 40px;
+                            height: 20px;
+                            position: relative;
+                            display: block;
+                            background: var(--switch-dm);
+                            border-radius: 200px;
+                            cursor: pointer;
+                            outline: 1px solid rgb(185, 185, 185);
+                            transition: background-color .4s;
+                
+                            .btn-toggle, .btn-tog-2 {
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 50%;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                background: var(--toggle-dm);
+                                transition: transform .4s, background-color .3s;
+                            }
+                            .tog-lf {
+                                transform: translateX(100%);
+                            }
+                        }
+                    }
+                }
+
+                .half-input {
+                    width: 100%;
+                    position: relative;
+
+                    .title-input {
+                        width: 100%;
+                        p {
+                            font-size: 14px;
+                            color: var(--color-text);
+                        }
+                    }
+
+                    input {
+                        font-size: 14px;
+                        padding: 8px 16px;
+                        border-radius: 12px;
+                        border: 1.5px solid gray;
+                        font-family: 'Poppins', sans-serif;
+                        width: 100%;
+                        background-color: transparent;
+                        color: var(--color-sharp);
+
+                        &:focus {
+                            border: 1.5px solid #3cb4ff !important;
+                            outline: .5px solid #3cb4ff !important;
+                        }
+
+                        &::-webkit-input-placeholder {
+                            color: gray;
+                        }
+
+                        &::-webkit-calendar-picker-indicator {
+                            filter: invert(40%);
+                        }
+                    }
+
+                    input[type=date] {
+                        width: 100%;
+                    }
+
+                    .act-tog {
+                        width: 100%;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                        color: var(--color-sharp);
+
+                        .tog-2 {
+                            width: 40px;
+                            height: 20px;
+                            position: relative;
+                            display: block;
+                            background: var(--switch-dm);
+                            border-radius: 200px;
+                            cursor: pointer;
+                            outline: 1px solid rgb(185, 185, 185);
+                            transition: background-color .4s;
+                
+                            .btn-toggle, .btn-tog-2 {
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 50%;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                background: var(--toggle-dm);
+                                transition: transform .4s, background-color .3s;
+                            }
+                            .tog-lf {
+                                transform: translateX(100%);
+                            }
+                        }
+                    }
+                }
+
+                &:nth-child(n + 2) {
+                    margin-top: 20px;
+                }
+            }
         }
 
         .modal-action {
@@ -2166,6 +2327,16 @@
         .content-modal {
             width: 100%;
             max-width: 500px;
+
+            .modal-value {
+                .row-input {
+                    flex-wrap: nowrap;
+
+                    .half-input {
+                        width: 50%;
+                    }
+                }
+            }
         }
     }
 

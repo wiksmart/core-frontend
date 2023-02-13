@@ -70,9 +70,10 @@
         "area": "Area"
     },
     "tableAcaYear": {
-        "startYear": "Start Year",
-        "endYear": "End Year",
+        "startYear": "Start Date",
+        "endYear": "End Date",
         "desc": "Description",
-        "status": "Status"
+        "status": "Status",
+        "addStart": "Input description..."
     }
 }
