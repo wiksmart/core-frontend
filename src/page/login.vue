@@ -99,10 +99,10 @@
 </template>
 
 <script>
-import axios from 'axios';
-import { useRouter } from 'vue-router';
-
-const router = useRouter()
+    import axios from 'axios';
+    import { ref } from 'vue';
+    import { useRouter } from 'vue-router';
+    import { apiHost } from "../config"
 
     export default {
         data: () => {
@@ -115,23 +115,46 @@ const router = useRouter()
         },
         methods:{
            async handlersubmit(){  
-            try{ 
-                const res = await axios.post('http://localhost:3000/auth/login', {
-                    email: this.email,
-                    password: this.password
-                    
-                })
-             
-                localStorage.setItem('token', res.data.token)
-                this.$router.push('/admin/dashboard')
-               
-            } catch (e) {
-                this.error = 'Invalid email/password !!'
-            }
+                try{ 
+                    const res = await axios.post(apiHost + 'auth/login', {
+                        email: this.email,
+                        password: this.password
+                    })
                 
+                    localStorage.setItem('token', res.data.access_token)
+
+                    this.$router.push('/admin/dashboard')
+                
+                } catch (e) {
+                    this.error = 'Invalid email/password !!'
+                }
             }
-            
-        }
-        
+        },
+        // setup() { 
+            // const tokenWeb = ref('') 
+
+            // const roleWeb = ref('')
+
+            // handlersubmit() = async () => {
+            //     const res = await axios
+            //     .post(apiHost + 'auth/login', {
+            //         email: this.email,
+            //         password: this.password
+            //     })
+            //     localStorage.setItem('token', res.data.token)
+            //     this.$router.push('/admin/dashboard')
+            // }
+
+            // return {
+            //     handlersubmit
+            // }
+
+            // const refresh = async () => {
+            //     const res = await axios
+            //     .get(apiHost + 'regions')
+            //     listdata.value = res.data
+            //     loadData.value = false
+            // }
+        // }
     }
 </script>

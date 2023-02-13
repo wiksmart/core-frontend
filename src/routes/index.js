@@ -47,7 +47,7 @@ const routes = [
                  requireAuth : true},
             },
             { 
-                path: '/admin/school/major/:id',
+                path: '/admin/school/major',
                 name: 'Major',
                 component: Major,
                 meta: { title: "Major" },

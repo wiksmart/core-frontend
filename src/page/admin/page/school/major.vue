@@ -67,7 +67,7 @@
     import { apiHost } from "../../../../config"
     import Loading from '../../../../components/loading.vue';
     import ModalAdd from '../../../../components/admin/school/major/addModal.vue';
-import { useRouter, useRoute } from 'vue-router'
+    import { useRouter, useRoute } from 'vue-router'
 
 
     export default {
@@ -85,21 +85,16 @@ import { useRouter, useRoute } from 'vue-router'
             }
 
             const listdata = reactive([]);
-
             const loadData = ref(true)
-
             const modalAdd = ref(false)
-
             const router = useRouter()
-
-            //vue router
             const route = useRoute()
 
             const refresh = async () => {
                 const res = await axios
-                    .get(`http://localhost:3000/majors/${route.params.id}`)
-          console.log(res.data)
-                // loadData.value = false
+                    .get(apiHost + "majors")
+                listdata.value = res.data
+                loadData.value = false
             }
 
             onMounted(() => {
