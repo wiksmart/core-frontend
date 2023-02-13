@@ -12,10 +12,10 @@
                     <p>WIK<span>Smart</span></p>
                 </div>
 
+                <!-- Error alert -->
+                <div v-if="error" class="alert-error" role="alert">{{ error }}</div>
+
                 <form @submit.prevent="handlersubmit">
-                <div v-if="error" style="color: black;" class="alert alert-dark" role="alert">
-                        {{ error }}
-                </div>
                     <!-- Username input -->
                     <div class="login-input">
                         <div class="login-icon">
@@ -99,10 +99,8 @@
 </template>
 
 <script>
-import axios from 'axios';
-import { useRouter } from 'vue-router';
-
-const router = useRouter()
+    import axios from 'axios';
+    import { apiHost } from "../config"
 
     export default {
         data: () => {
@@ -115,19 +113,21 @@ const router = useRouter()
         },
         methods:{
            async handlersubmit(){  
-            try{ 
-                const res = await axios.post('http://localhost:3000/auth/login', {
-                    email: this.email,
-                    password: this.password
+                try{ 
+                    const res = await axios.post(apiHost + 'auth/login', {
+                        email: this.email,
+                        password: this.password
+                        
+                    })
+                
+                    localStorage.setItem('token', res.data.access_token)
+                    localStorage.setItem('role', res.data.type)
                     
-                })
-             
-                localStorage.setItem('token', res.data.token)
-                this.$router.push('/admin/dashboard')
-               
-            } catch (e) {
-                this.error = 'Invalid email/password !!'
-            }
+                    this.$router.push('/admin/dashboard')
+                
+                } catch (e) {
+                    this.error = 'Email / Password salah!'
+                }
                 
             }
             

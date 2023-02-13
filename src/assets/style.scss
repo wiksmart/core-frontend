@@ -240,6 +240,7 @@
         min-height: 300px;
         padding: 15px;
         background-color: white;
+        position: relative;
         border-radius: 20px;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 
@@ -260,6 +261,17 @@
                     color: #01005A;
                 }
             }
+        }
+
+        // Error alert
+        .alert-error {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            left: 0;
+            top: 70px;
+            font-size: 14px;
+            color: rgb(223, 99, 99);
         }
 
         // Form login
