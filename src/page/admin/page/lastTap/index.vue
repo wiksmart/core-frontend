@@ -33,11 +33,11 @@
                     <tbody>
                         <tr v-for="(data, index) in listdata.value" :key="data.id">
                             <td>{{ index + 1 }}</td>
-                            <td>{{ data.rfid }}</td>
+                             <td>{{ data.rfid }}</td>
                             <td>{{ data.machine.address }}</td>
                             <td>{{ data.user.name }}</td>
                             <td>{{ data.user.type }}</td>
-                            <td>{{ data.date }}</td>
+                            <td>{{ data.date }}</td> 
                         </tr>
                     </tbody>
                 </table>

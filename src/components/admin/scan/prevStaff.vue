@@ -1,4 +1,8 @@
 <template>
+    <div class="load-base-switch" :class="loadData ? 'load-base-show' : ''">
+        <Loading />
+    </div>
+
     <div class="content-header">
         <span>
             <font-awesome-icon icon="fa-solid fa-clipboard-user" />&emsp;{{ $t('sidebar.scan') }} {{ $t('sidebar.staff') }}
@@ -23,23 +27,55 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>0xfc 0xb5 0x4d 0x17</td>
-                    <td>12008020</td>
-                    <td>Abi Noval</td>
-                    <td>HRD</td>
-                    <td>323</td>
-                </tr>
+              
+                    <tr v-for="(data, index) in listdata.value" :key="data.id">
+                        <td>{{ index + 1 }}</td>
+                        <td>{{ data.rfid }}</td>
+                        <td>{{ data.user.name }}</td>
+                        <td>{{ data.machine.room }}</td>
+                        <td>{{ data.date }}</td>
+                        <td>{{ data.status}}</td>
+                    </tr>
+                
             </tbody>
         </table>
     </div>
 </template>
 
 <script>
-    export default {
-        setup() {
-            
+import { onMounted, onUpdated, reactive, ref } from "vue"
+import axios from "axios"
+import Loading from '../../../components/loading.vue'
+import { apiHost } from "../../../config"
+
+export default {
+    components: {
+        Loading
+    },
+    setup() {
+        const listdata = reactive([])
+        const switchCard = ref(0)
+
+        const refresh = async () => {
+            const res = await axios
+                .get(apiHost + 'scans?type=STAFF')
+            listdata.value = res.data
+            loadData.value = false
+        }
+
+        const loadData = ref(true)
+
+        onMounted(() => {
+            refresh()
+        })
+
+        return {
+            switchCard,
+            modalImg: ref(false),
+            listdata,
+            loadData
         }
     }
+}
+
 </script>

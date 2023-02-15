@@ -1,4 +1,7 @@
 <template>
+    <div class="load-base-switch" :class="loadData ? 'load-base-show' : ''">
+        <Loading />
+    </div>
     <div class="content-header">
         <span>
             <font-awesome-icon icon="fa-solid fa-user-tie" />&emsp;{{ $t('sidebar.scan') }} {{ $t('sidebar.teacher') }}

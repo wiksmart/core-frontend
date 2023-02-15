@@ -1,5 +1,5 @@
 <template>
-    <!-- <div class="load-base-switch" :class="loadData ? 'load-base-show' : ''"><Loading /></div> -->
+    <div class="load-base-switch" :class="loadData ? 'load-base-show' : ''"><Loading /></div>
 
     <div class="content-header">
         <span>
@@ -91,6 +91,8 @@ import { apiHost } from "../../../config"
             const refresh = async () => {
                 const res = await axios.get(apiHost + 'teachers')
                 listdata.value = res.data
+                loadData.value = false
+
             }
 
             onMounted(() => {   

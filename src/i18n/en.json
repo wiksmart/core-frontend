@@ -59,7 +59,8 @@
         "action": "Action",
         "edit": "Edit",
         "detail": "Detail",
-        "delete": "Delete"
+        "delete": "Delete",
+        "time" : "Time"
     },
     "tableClass": {
         "major": "Major",

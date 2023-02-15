@@ -80,7 +80,7 @@
 
             const refresh = async () => {
                 const res = await axios
-                .get(apiHost + 'regions')
+                    .get(apiHost + 'regions/' + localStorage.getItem('SchoolYear'))
                 listdata.value = res.data
                 loadData.value = false
             }

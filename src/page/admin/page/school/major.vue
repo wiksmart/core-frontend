@@ -87,8 +87,6 @@
             const listdata = reactive([]);
             const loadData = ref(true)
             const modalAdd = ref(false)
-            const router = useRouter()
-            const route = useRoute()
 
             const refresh = async () => {
                 const res = await axios.get(apiHost + "majors/" + localStorage.getItem('SchoolYear'))
@@ -102,7 +100,6 @@
 
             return {
                 cancelClick,
-                router,
                 listdata,
                 loadData,
                 modalAdd,

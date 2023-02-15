@@ -59,7 +59,8 @@
         "action": "Aksi",
         "edit": "Ubah",
         "detail": "Detil",
-        "delete": "Hapus"
+        "delete": "Hapus",
+        "time" : "Waktu"
     },
     "tableClass": {
         "major": "Jurusan",

@@ -1,4 +1,8 @@
 <template>
+    <div class="load-base-switch" :class="loadData ? 'load-base-show' : ''">
+        <Loading />
+    </div>
+
     <div class="content-header">
         <span>
             <font-awesome-icon icon="fa-solid fa-users" />&emsp;{{ $t('sidebar.scan') }} {{ $t('sidebar.student') }}
@@ -20,7 +24,7 @@
                     <th>{{ $t('table.nis') }}</th>
                     <th>{{ $t('table.name') }}</th>
                     <th>{{ $t('table.room') }}</th>
-                    <th>Time</th>
+                    <th>{{ $t('table.time') }}</th>
                     <th>Status</th>
                     
                 </tr>
