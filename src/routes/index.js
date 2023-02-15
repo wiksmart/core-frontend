@@ -14,6 +14,8 @@ import Scan from '../page/admin/page/scan/index.vue';
 import Machine from '../page/admin/page/machine/index.vue';
 import LastTap from '../page/admin/page/lastTap/index.vue';
 
+
+
 const routes = [
     {
         path: "/",
@@ -95,7 +97,6 @@ const routes = [
                 component: LastTap,
                 meta: { title: "Last Tap" },
             },
-          
         ],
     },
 ];
@@ -105,11 +106,17 @@ const router = createRouter({
     routes,
 });
 const isAuthenticated = true
+
 router.beforeEach(async (to, from, next) => {
     document.title = 'WIKSmart - ' + `${to.meta.title}`;
     if(to.name !== 'Login' && !isAuthenticated) next({name: 'Login'});
-    if(to.name === 'Login' && isAuthenticated) next({name: 'Dashboard'});
-    else next()
+    // if(to.name === 'Login' && isAuthenticated) next({name: 'Dashboard'});
+    // if(to.name === 'Logout ' && isAuthenticated) next({name: 'Login'});
+
+
+    else
+
+     next()
 });
 
 export default router;

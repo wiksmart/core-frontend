@@ -91,9 +91,7 @@
             const route = useRoute()
 
             const refresh = async () => {
-                const res = await axios.get(apiHost + "majors")
-                const active = await axios.get(apiHost + 'majors/active')
-                localStorage.setItem('SchoolYear', active.data.id)
+                const res = await axios.get(apiHost + "majors/" + localStorage.getItem('SchoolYear'))
                 listdata.value = res.data
                 loadData.value = false
             }
