@@ -60,7 +60,17 @@
         "edit": "Ubah",
         "detail": "Detil",
         "delete": "Hapus",
-        "time" : "Waktu"
+        "time" : "Waktu",
+        "date": "Tanggal",
+        "address":"Alamat Ruangan",
+        "description":"Deskripsi",
+        "division":"Divisi"
+    },
+    "tableScan":{
+        "address":"Alamat Ruangan",
+        "division":"Division",
+        "date":"Date",
+        "time" : "Time"
     },
     "tableClass": {
         "major": "Jurusan",

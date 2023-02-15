@@ -38,7 +38,7 @@
                     <td>{{ data.user.nis }}</td>
                     <td>{{ data.user.name }}</td>
                     <td>{{ data.machine.room }}</td>
-                    <td>{{ data.date }}</td>
+                    <td>{{ moment(data.created_at).format('DD MMMM YYYY | hh:ss') }}</td>
                     <td>{{ data.status}}</td>
                 </tr>
             </tbody>
@@ -51,6 +51,7 @@ import { onMounted, onUpdated, reactive, ref } from "vue"
 import axios from "axios"
 import Loading from '../../../components/loading.vue'
 import { apiHost } from "../../../config"
+import  moment from 'moment'
 
 export default {
     components: {
@@ -77,7 +78,8 @@ export default {
             switchCard,
             modalImg: ref(false),
             listdata,
-            loadData
+            loadData,
+            moment
         }
     }
 }

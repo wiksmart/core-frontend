@@ -60,6 +60,17 @@
         "edit": "Edit",
         "detail": "Detail",
         "delete": "Delete",
+        "description":"Description"
+    },
+    "tableLastap":{
+        "address":"Address",
+        "division":"Division",
+        "date":"Date"
+    },
+    "tableScan":{
+        "address":"Address",
+        "division":"Division",
+        "date":"Date",
         "time" : "Time"
     },
     "tableClass": {

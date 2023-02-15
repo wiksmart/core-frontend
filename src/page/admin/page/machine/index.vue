@@ -24,9 +24,9 @@
                     <thead>
                         <tr>
                             <th>{{ $t('table.no') }}</th>
-                            <th>Address</th>
-                            <th>Room</th>
-                            <th>Description</th>
+                            <th>{{ $t('tableScan.address') }}</th>
+                            <th>{{ $t('table.room') }}</th>
+                            <th>{{ $t('table.description') }}</th>
                             <th>Status</th>
                             <th width="100px">{{ $t('table.action') }}</th>
                         </tr>

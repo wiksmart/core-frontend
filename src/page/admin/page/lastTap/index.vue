@@ -22,8 +22,9 @@
                         <tr>
                             <th>{{ $t('table.no') }}</th>
                             <th>Rfid</th>
-                            <th>Mac</th>
-                            <th>Name</th>
+                            <th>{{ $t('table.address') }}</th>
+
+                            <th>{{ $t('table.name') }}</th>
                             <th>Division</th>
                            
                             <th>Date</th>
@@ -37,7 +38,7 @@
                             <td>{{ data.machine.address }}</td>
                             <td>{{ data.user.name }}</td>
                             <td>{{ data.user.type }}</td>
-                            <td>{{ data.date }}</td> 
+                            <td>{{ moment(data.created_at).format('DD MMMM YYYY | hh:ss') }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -65,6 +66,7 @@ import axios from "axios"
 import { apiHost } from "../../../../config"
 import Loading from '../../../../components/loading.vue'
 import ModalAdd from '../../../../components/admin/school/acaYear/addModal.vue'
+import moment from 'moment'
 
 export default {
     components: {
@@ -102,6 +104,7 @@ export default {
             modalAdd,
             modalDetail: ref(false),
             modalDelete: ref(false),
+            moment
         }
     },
 }
