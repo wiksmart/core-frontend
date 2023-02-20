@@ -23,7 +23,6 @@
                             <th>{{ $t('table.no') }}</th>
                             <th>Rfid</th>
                             <th>{{ $t('table.address') }}</th>
-
                             <th>{{ $t('table.name') }}</th>
                             <th>Division</th>
                            

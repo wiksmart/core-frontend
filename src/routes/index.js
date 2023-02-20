@@ -21,7 +21,7 @@ const routes = [
         path: "/",
         name: "Login",
         component: Login,
-        meta: { title: "Masuk", authPage:true}
+        meta: { title: "Masuk"}
     },
     {
         path: "/forgot-password",
@@ -46,7 +46,7 @@ const routes = [
                 name: 'Dashboard',
                 component: Dashboard,
                 meta: { title: "Dashboard",
-                 requireAuth : true},
+                 requireAuth : true, authPage:false},
             },
             { 
                 path: '/admin/school/major',
@@ -105,18 +105,26 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
 });
-const isAuthenticated = true
+const isAuthenticated = false
+const isAuthenticate = true
+
 
 router.beforeEach(async (to, from, next) => {
     document.title = 'WIKSmart - ' + `${to.meta.title}`;
-    if(to.name !== 'Login' && !isAuthenticated) next({name: 'Login'});
-    // if(to.name === 'Login' && isAuthenticated) next({name: 'Dashboard'});
+    // if(to.name !== 'Login' && !isAuthenticated) next({name: 'Login'});
+    //  else next()
+    // if(to.name === 'Login' && isAuthenticate) next();
+
     // if(to.name === 'Logout ' && isAuthenticated) next({name: 'Login'});
 
 
-    else
+const isAuthenticated = true // replace with your authentication logic
+  if (to.matched.some(record => record.meta.authPage) && !isAuthenticated) {
+    next('/')
+  } else {
+    next()
+  }
 
-     next()
 });
 
 export default router;

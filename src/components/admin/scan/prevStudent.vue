@@ -23,6 +23,7 @@
                     <th>{{ $t('table.rfid') }}</th>
                     <th>{{ $t('table.nis') }}</th>
                     <th>{{ $t('table.name') }}</th>
+                    <th>Kelas</th>
                     <th>{{ $t('table.room') }}</th>
                     <th>{{ $t('table.time') }}</th>
                     <th>Status</th>
@@ -37,6 +38,7 @@
                     <td>{{ data.rfid }}</td>
                     <td>{{ data.user.nis }}</td>
                     <td>{{ data.user.name }}</td>
+                    <td>{{ data.user.major.name }}</td>
                     <td>{{ data.machine.room }}</td>
                     <td>{{ moment(data.created_at).format('DD MMMM YYYY | hh:ss') }}</td>
                     <td>{{ data.status}}</td>

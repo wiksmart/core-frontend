@@ -5,13 +5,27 @@
         </div>
 
         <div class="modal-value">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At in iure iste ipsam perspiciatis, debitis molestiae ad fugit iusto! Quos neque impedit eveniet, dignissimos enim facilis consectetur temporibus placeat asperiores.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At in iure iste ipsam perspiciatis, debitis molestiae ad fugit iusto! Quos neque impedit eveniet, dignissimos enim facilis consectetur temporibus placeat asperiores.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At in iure iste ipsam perspiciatis, debitis molestiae ad fugit iusto! Quos neque impedit eveniet, dignissimos enim facilis consectetur temporibus placeat asperiores.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At in iure iste ipsam perspiciatis, debitis molestiae ad fugit iusto! Quos neque impedit eveniet, dignissimos enim facilis consectetur temporibus placeat asperiores.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At in iure iste ipsam perspiciatis, debitis molestiae ad fugit iusto! Quos neque impedit eveniet, dignissimos enim facilis consectetur temporibus placeat asperiores.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At in iure iste ipsam perspiciatis, debitis molestiae ad fugit iusto! Quos neque impedit eveniet, dignissimos enim facilis consectetur temporibus placeat asperiores.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. At in iure iste ipsam perspiciatis, debitis molestiae ad fugit iusto! Quos neque impedit eveniet, dignissimos enim facilis consectetur temporibus placeat asperiores.
+            <div class="row-input">
+                <div class="input-data full-input">
+                    <div class="title-input"><p>{{ $t('tableClass.area') }}</p></div>
+
+                    <div><input type="text"></div>
+                </div>
+            </div>
+
+            <div class="row-input">
+                <div class="input-data half-input">
+                    <div class="title-input"><p>{{ $t('table.region') }}</p></div>
+
+                    <div><input type="text"></div>
+                </div>
+
+                <div class="input-data half-input">
+                    <div class="title-input"><p>{{ $t('sidebar.teacher') }}</p></div>
+
+                    <div><input type="text"></div>
+                </div>
+            </div>
         </div>
 
         <div class="modal-action">

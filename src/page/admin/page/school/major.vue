@@ -1,6 +1,6 @@
 <template>
     <div class="container-section">
-        <!-- <div class="load-base" :class="loadData ? 'load-base-show' : ''"><Loading /></div> -->
+        <div class="load-base" :class="loadData ? 'load-base-show' : ''"><Loading /></div>
 
         <div class="content-section">
             <div class="content-header">
@@ -35,9 +35,9 @@
                             <td>{{ data.description }}</td>
                             <td>
                                 <span class="btn-action">
-                                    <button :title="$t('table.edit')"><font-awesome-icon icon="fa-solid fa-pen-to-square" /></button>
+                                    <button :title="$t('table.edit')" @click="modalEdit = true"><font-awesome-icon icon="fa-solid fa-pen-to-square" /></button>
                                     <button :title="$t('table.detail')"><font-awesome-icon icon="fa-solid fa-clipboard-list" /></button>
-                                    <button :title="$t('table.delete')"><font-awesome-icon icon="fa-solid fa-trash-can" /></button>
+                                    <button :title="$t('table.delete')" @click="deletemajor"><font-awesome-icon icon="fa-solid fa-trash-can" /></button>
                                 </span>
                             </td>
                         </tr>
@@ -50,6 +50,11 @@
     <div class="modal" :class="modalAdd ? 'show-modal' : 'hide-modal'">
         <modal-add @cancel-click="cancelClick"/>
         <div class="close-modal" @click="modalAdd = false"/>
+    </div>
+
+    <div class="modal" :class="modalEdit ? 'show-modal' : 'hide-modal'">
+        <modal-edit @cancel-click="cancelClick"/>
+        <div class="close-modal" @click="modalEdit = false"/>
     </div>
 
     <div class="modal" :class="modalDetail ? 'show-modal' : 'hide-modal'">
@@ -67,45 +72,63 @@
     import { apiHost } from "../../../../config"
     import Loading from '../../../../components/loading.vue';
     import ModalAdd from '../../../../components/admin/school/major/addModal.vue';
+    import ModalEdit from '../../../../components/admin/school/major/editModal.vue';
     import { useRouter, useRoute } from 'vue-router'
 
 
     export default {
         components: {
             Loading,
-            ModalAdd
+            ModalAdd,
+            ModalEdit
         },
         setup(props, {emit}) {
             const cancelClick = (event, item) => { 
-                if(modalAdd.value) {
+                if(modalAdd.value || modalEdit.value) {
                     modalAdd.value = false
+                    modalEdit.value = false
                 } else {
                     modalAdd.value = true
+                    modalEdit.value = true
                 }
             }
 
-            const listdata = reactive([]);
+            const listdata = reactive([])
+
             const loadData = ref(true)
+
             const modalAdd = ref(false)
+
+            const modalEdit= ref(false)
+
+            // const departmentObject = ref()
 
             const refresh = async () => {
                 const res = await axios.get(apiHost + "majors/" + localStorage.getItem('SchoolYear'))
                 listdata.value = res.data
                 loadData.value = false
             }
-
+         
             onMounted(() => {
                 refresh();
+                
             });
 
+            onUpdated(()=> {
+                refresh();
+            })
+
             return {
+                // departmentObject,
                 cancelClick,
                 listdata,
                 loadData,
                 modalAdd,
+                modalEdit,
                 modalDetail: ref(false),
                 modalDelete: ref(false),
             }
         },
+        
     }
 </script>
