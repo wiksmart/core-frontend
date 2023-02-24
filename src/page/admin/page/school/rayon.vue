@@ -1,15 +1,22 @@
 <template>
     <div class="container-section">
-        <div class="load-base" :class="loadData ? 'load-base-show' : ''"><Loading /></div>
+        <div class="load-base" :class="loadData ? 'load-base-show' : ''">
+            <Loading />
+        </div>
 
         <div class="content-section">
             <div class="content-header">
                 <span>
-                    <font-awesome-icon icon="fa-solid fa-map-location-dot" />&emsp;{{ $t('sidebar.rayon') }}
+                    <font-awesome-icon
+                        icon="fa-solid fa-map-location-dot"
+                    />&emsp;{{ $t("sidebar.rayon") }}
                 </span>
 
                 <span class="switch-mode">
-                    <button @click="modalAdd = true"><font-awesome-icon icon="fa-solid fa-circle-plus" /><p>{{ $t('menu.add') }}</p></button>
+                    <button @click="modalAdd = true">
+                        <font-awesome-icon icon="fa-solid fa-circle-plus" />
+                        <p>{{ $t("menu.add") }}</p>
+                    </button>
                 </span>
             </div>
 
@@ -17,25 +24,40 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>{{ $t('table.no') }}</th>
-                            <th>{{ $t('tableClass.area') }}</th>
-                            <th>{{ $t('sidebar.rayon') }}</th>
-                            <th>{{ $t('sidebar.teacher') }}</th>
-                            <th width="100px">{{ $t('table.action') }}</th>
+                            <th>{{ $t("table.no") }}</th>
+                            <th>{{ $t("tableClass.area") }}</th>
+                            <th>{{ $t("sidebar.rayon") }}</th>
+                            <th>{{ $t("sidebar.teacher") }}</th>
+                            <th width="100px">{{ $t("table.action") }}</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr v-for="(data, index) in listdata.value" :key="data.id">
+                        <tr
+                            v-for="(data, index) in listdata.value"
+                            :key="data.id"
+                        >
                             <td>{{ index + 1 }}</td>
                             <td>{{ data.area }}</td>
                             <td>{{ data.name }}</td>
                             <td>{{ data.teacher }}</td>
                             <td>
                                 <span class="btn-action">
-                                    <button :title="$t('table.edit')"><font-awesome-icon icon="fa-solid fa-pen-to-square" /></button>
-                                    <button :title="$t('table.detail')"><font-awesome-icon icon="fa-solid fa-clipboard-list" /></button>
-                                    <button :title="$t('table.delete')"><font-awesome-icon icon="fa-solid fa-trash-can" /></button>
+                                    <button :title="$t('table.edit')">
+                                        <font-awesome-icon
+                                            icon="fa-solid fa-pen-to-square"
+                                        />
+                                    </button>
+                                    <button :title="$t('table.detail')">
+                                        <font-awesome-icon
+                                            icon="fa-solid fa-clipboard-list"
+                                        />
+                                    </button>
+                                    <button :title="$t('table.delete')">
+                                        <font-awesome-icon
+                                            icon="fa-solid fa-trash-can"
+                                        />
+                                    </button>
                                 </span>
                             </td>
                         </tr>
@@ -46,55 +68,56 @@
     </div>
 
     <div class="modal" :class="modalAdd ? 'show-modal' : 'hide-modal'">
-        <modal-add @cancel-click="cancelClick"/>
-        <div class="close-modal" @click="modalAdd = false"/>
+        <modal-add @cancel-click="cancelClick" />
+        <div class="close-modal" @click="modalAdd = false" />
     </div>
 </template>
 
 <script>
-    import { onMounted, onUpdated, reactive, ref } from "vue";
-    import axios from "axios";
-    import { apiHost } from "../../../../config"
-    import Loading from '../../../../components/loading.vue';
-    import ModalAdd from '../../../../components/admin/school/rayon/addModal.vue';
+import { onMounted, onUpdated, reactive, ref } from "vue"
+import axios from "axios"
+import { apiHost } from "../../../../config"
+import Loading from "../../../../components/loading.vue"
+import ModalAdd from "../../../../components/admin/school/rayon/addModal.vue"
 
-    export default {
-        components: {
-            Loading,
-            ModalAdd
-        },
-        setup() {
-            const cancelClick = (event, item) => { 
-                if(modalAdd.value) {
-                    modalAdd.value = false
-                } else {
-                    modalAdd.value = true
-                }
+export default {
+    components: {
+        Loading,
+        ModalAdd,
+    },
+    setup() {
+        const cancelClick = (event, item) => {
+            if (modalAdd.value) {
+                modalAdd.value = false
+            } else {
+                modalAdd.value = true
             }
+        }
 
-            const listdata = reactive([]);
+        const listdata = reactive([])
 
-            const loadData = ref(true)
+        const loadData = ref(true)
 
-            const modalAdd = ref(false)
+        const modalAdd = ref(false)
 
-            const refresh = async () => {
-                const res = await axios
-                    .get(apiHost + 'regions/' + localStorage.getItem('SchoolYear'))
-                listdata.value = res.data
-                loadData.value = false
-            }
+        const refresh = async () => {
+            const res = await axios.get(
+                apiHost + "regions/" + localStorage.getItem("SchoolYear")
+            )
+            listdata.value = res.data
+            loadData.value = false
+        }
 
-            onMounted(() => {
-                refresh();
-            });
+        onMounted(() => {
+            refresh()
+        })
 
-            return {
-                listdata,
-                loadData,
-                modalAdd,
-                cancelClick,
-            }
-        },
-    }
+        return {
+            listdata,
+            loadData,
+            modalAdd,
+            cancelClick,
+        }
+    },
+}
 </script>

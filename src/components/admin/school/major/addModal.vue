@@ -3,35 +3,34 @@
         <div class="modal-header">
             {{ $t('modal.addMajor') }}
         </div>
-        <div class="modal-value">
+        <div class="modal-value" v-if="modaladd">
+              <form @submit.prevent="formAdd">
             <div class="row-input">
-
                 <div class="input-data half-input">
                     <div class="title-input"><p>{{ $t('tableClass.prodi') }}</p></div>
-
-                    <div><input v-model="model.major.competency" type="text" required></div>
+                    <div><input v-model="formData.competency" type="text" required></div>
                 </div>
 
                 <div class="input-data half-input">
                     <div class="title-input"><p>{{ $t('tableClass.major') }}</p></div>
-
-                    <div><input v-model="model.major.name" type="text" required></div>
+                    <div><input v-model="formData.name" type="text" required></div>
                 </div>
             </div>
 
             <div class="row-input">
                 <div class="input-data full-input">
                     <div class="title-input"><p>{{ $t('tableClass.desc') }}</p></div>
-
-                    <div><input v-model="model.major.description" type="text" required></div>
+                    <div><input v-model="formData.description" type="text" required></div>
                 </div>
             </div>
+            <div class="modal-action">
+                <button>{{ $t('menu.submit') }}</button>
+                <button type="button" @click.capture="cancelClick">{{ $t('menu.cancel') }}</button>
+            </div>
+            </form>
         </div>
 
-        <div class="modal-action">
-            <button @click="submitData">{{ $t('menu.submit') }}</button>
-            <button type="button" @click.capture="cancelClick">{{ $t('menu.cancel') }}</button>
-        </div>
+        
     </div>
 </template>
 
@@ -41,40 +40,67 @@
     import { apiHost } from "../../../../config"
 
     export default {
-          setup(props, {emit}) {
-        const cancelClick = (event, item) => {
-            emit("cancel-click", event, item)
-        }
-        return{
-            cancelClick
-        }
-    },
-    data(){
-        return{
-            model: {
-                major: {
-                    competency: '',
-                    name:'',
-                    description:''
-                }
-            }
-        }
-    },
-    methods: {
-        submitData(){
-            axios.post(apiHost + "majors/" + localStorage.getItem('SchoolYear'), this.model.major)
-            .then(res => {
-                console.log(res.data)
-                this.model.major = {
-                    competency: '',
-                    name: '',
-                    description: '' 
-                }
-              emit('cancel-click')
+        
+        setup(props, {emit}) {
+        const modaladd = ref(false)
+            const formData = reactive({
+            competency: '',
+            name: '',
+            description: '',
 
+        })
+            const cancelClick = (event, item) => {
+                emit("cancel-click", event, item)
+            }
+            const formAdd = async () => {
+            const url = `${apiHost}majors${localStorage.getItem('SchoolYear')}`
+            const method = 'POST'
+            await axios({
+                method,
+                url,
+                params: formData
             })
+                .then(response => {
+                    console.log('sukses', response)
+                    modaladd.value = false
+                })
         }
-    }
+
+
+        return{
+            cancelClick,
+            modaladd,
+            formAdd,
+            formData,
+        }
+    },
+    // data(){
+    //     return{
+    //         model: {
+    //             major: {
+    //                 competency: '',
+    //                 name:'',
+    //                 description:''
+    //             }
+    //         }
+    //     }
+    // },
+    // methods: {
+    //     submitData(){
+    //         axios.post(apiHost + "majors/" + localStorage.getItem('SchoolYear'), this.model.major)
+    //         .then(res => {
+    //             console.log(res.data)
+    //             this.model.major = {
+    //                 competency: '',
+    //                 name: '',
+    //                 description: '' 
+    //             }
+    //           emit('cancel-click')
+
+    //         })
+    //     }
+    // }
+    
  }
 </script>
 
