@@ -120,7 +120,7 @@
                     })
                 
                     localStorage.setItem('token', res.data.access_token)
-
+                    console.log(res.data)
                     if(res.data.type === 'ADMIN') {
                         this.$router.push('/admin/dashboard')
                     } else if(res.data.type === 'TEACHER') {

@@ -102,7 +102,11 @@ export default {
 
         const refresh = async () => {
             const res = await axios.get(
-                apiHost + "regions/" + localStorage.getItem("SchoolYear")
+                apiHost + "regions/" + localStorage.getItem("SchoolYear"), {
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
+                }
+            }
             )
             listdata.value = res.data
             loadData.value = false

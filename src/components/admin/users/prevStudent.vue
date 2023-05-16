@@ -1,6 +1,4 @@
 <template>
-    <div class="load-base-switch" :class="loadData ? 'load-base-show' : ''"><Loading /></div>
-
     <div class="content-header">
         <span>
             <font-awesome-icon icon="fa-solid fa-users" />&emsp;{{ $t('sidebar.users') }} {{ $t('sidebar.student') }}
@@ -19,7 +17,7 @@
             <thead>
                 <tr>
                     <th>{{ $t('table.no') }}</th>
-                    <th>{{ $t('table.pict') }}</th>
+                    <!-- <th>{{ $t('table.pict') }}</th> -->
                     <th>{{ $t('table.nis') }}</th>
                     <th>{{ $t('table.name') }}</th>
                     <th width="200px">{{ $t('table.email') }}</th>
@@ -33,7 +31,7 @@
       
                 <tr v-for="(data, index) in listdata.value" :key="data.id">
                     <td>{{ index + 1 }}</td>
-                    <td><img src="../../../assets/image/IMG_20211214_194210-picsay.jpg" alt="Pict" @click="modalImg = true"></td>
+                    <!-- <td><img src="../../../assets/image/IMG_20211214_194210-picsay.jpg" alt="Pict" @click="modalImg = true"></td> -->
                     <td>{{ data.nis }}</td>
                     <td>{{ data.name }}</td>
                     <td>{{ data.email }}</td>
@@ -93,10 +91,10 @@
             const loadData = ref(true)
 
             const refresh = async () => {
-                const res = await axios.get(apiHost + 'students')
+                const res = await axios.get(apiHost + "students")
                 listdata.value = res.data
                 loadData.value = false
-            }
+            }  
             onMounted(() => {
                 refresh()
             })

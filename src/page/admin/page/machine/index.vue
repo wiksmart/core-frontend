@@ -5,8 +5,7 @@
         </div>
 
         <div class="content-section">
-            <div class="content-header">
-            
+            <div class="content-header">  
                 <span>
                 <font-awesome-icon icon="fa-solid fa-microchip" />
                 &emsp; Machine
@@ -97,12 +96,7 @@ export default {
 
         const refresh = async () => {
             const res = await axios
-                .get(apiHost + 'machines',
-                    {
-                        headers: {
-                            Authorization: 'Bearer' + localStorage.getItem('token')
-                        }
-                    })
+                .get(apiHost + 'machines')
             listdata.value = res.data
             loadData.value = false
         }

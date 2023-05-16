@@ -1,7 +1,7 @@
 <template>
-    <div class="load-base-switch" :class="loadData ? 'load-base-show' : ''">
+    <!-- <div class="load-base-switch" :class="loadData ? 'load-base-show' : ''">
         <Loading />
-    </div>
+    </div> -->
 
     <div class="content-header">
         <span>
@@ -65,7 +65,7 @@ export default {
 
         const refresh = async () => {
             const res = await axios
-                .get(apiHost + 'scans?type=STUDENT')
+                .get(apiHost + 'scans?type=STUDENT' )
             listdata.value = res.data
             loadData.value = false
         }
