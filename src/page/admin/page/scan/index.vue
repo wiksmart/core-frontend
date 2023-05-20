@@ -8,9 +8,9 @@
             <li :class="activeTab === 1 ? 'switch-act' : ''" @click="activeTab = 1">
                 {{ $t('sidebar.teacher') }}
             </li>
-            <li :class="activeTab === 2 ? 'switch-act' : ''" @click="activeTab = 2">
+            <!-- <li :class="activeTab === 2 ? 'switch-act' : ''" @click="activeTab = 2">
                 {{ $t('sidebar.staff') }}
-            </li>
+            </li> -->
         </div>
 
         <!-- Content preview -->

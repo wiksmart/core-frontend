@@ -55,7 +55,7 @@
                 </div>
                 <div class="text-content">
                     <p>{{ data.name }}</p>
-                    <p>division | {{ data.division }}</p>
+                    <p>{{ $t('table.position') }} | {{ data.division }}</p>
                 </div>
                 <div class="text-detail">
                     <p>{{ data.email }}</p>
@@ -89,7 +89,7 @@ import { apiHost } from "../../../config"
             const loadData = ref(true)
 
             const refresh = async () => {
-                const res = await axios.get(apiHost + 'teachers')
+                const res = await axios.get(apiHost + 'teachers?=TEACHER')
                 listdata.value = res.data
                 loadData.value = false
 

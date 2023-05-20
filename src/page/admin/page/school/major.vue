@@ -107,7 +107,7 @@ export default {
         ModalAdd,
         ModalEdit,
     },
-    setup(props, { emit }) {
+    setup() {
         const cancelClick = (event, item) => {
             if (modalAdd.value || modalEdit.value) {
                 modalAdd.value = false
@@ -133,6 +133,7 @@ export default {
                     Authorization: 'Bearer ' + localStorage.getItem('token')
                 }
             }
+            
             )
             listdata.value = res.data
             loadData.value = false
@@ -157,5 +158,6 @@ export default {
             modalDelete: ref(false),
         }
     },
+    
 }
 </script>

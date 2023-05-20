@@ -9,7 +9,7 @@
                 {{ $t('sidebar.teacher') }}
             </li>
             <li :class="activeTab === 2 ? 'switch-act' : ''" @click="activeTab = 2">
-                {{ $t('sidebar.staff') }}
+                {{ $t('sidebar.admin') }}
             </li>
         </div>
 

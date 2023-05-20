@@ -3,7 +3,7 @@
 
     <div class="content-header">
         <span>
-            <font-awesome-icon icon="fa-solid fa-clipboard-user" />&emsp;{{ $t('sidebar.users') }} {{ $t('sidebar.staff') }}
+            <font-awesome-icon icon="fa-solid fa-clipboard-user" />&emsp;{{ $t('sidebar.users') }} {{ $t('sidebar.admin') }}
         </span>
 
         <span class="switch-mode">
@@ -19,14 +19,12 @@
             <thead>
                 <tr>
                     <th>{{ $t('table.no') }}</th>
-                    <th>{{ $t('table.pict') }}</th>
-                  
+                    <th>{{ $t('table.pict') }}</th>        
                     <th>{{ $t('table.name') }}</th>
                     <th>{{ $t('table.email') }}</th>
                     <th>{{ $t('table.action') }}</th>
                 </tr>
             </thead>
-
             <tbody>
                 <tr  v-for="(data, index) in listdata.value" :key="data.id">
                     <td>{{ index + 1 }}</td>
@@ -47,17 +45,16 @@
 
     <div class="content-table" v-if="switchCard === 1">
         <div class="table-card">
-            <div class="card-data">
+            <div class="card-data" v-for="(data, index) in listdata.value" :key="data.id">
                 <div class="card-img">
                     <img src="../../../assets/image/IMG_20211214_194210-picsay.jpg" alt="Pict" @click="modalImg = true">
                 </div>
                 <div class="text-content">
-                    <p>Abi Noval</p>
-                    <p>12008020</p>
-                    <p>HRD</p>
+                 <p>{{ data.name }}</p>
+                 <p>{{ data.description }}</p>
                 </div>
                 <div class="text-detail">
-                    <p>abinoval@smkwikrama.sch.id</p>
+                  <p>{{ data.email }}</p>
                 </div>
             </div>
         </div>
@@ -88,7 +85,7 @@ import { apiHost } from "../../../config"
             const loadData = ref(true)
 
             const refresh = async () => {
-                const res = await axios.get(apiHost + 'staff')
+                const res = await axios.get(apiHost + 'admins?=ADMIN')
                 listdata.value = res.data
                 loadData.value = false
             }
